@@ -75,7 +75,7 @@ label small { font-weight: 400; }
 .topo nav { display: flex; gap: .25rem; flex-wrap: wrap; flex: 1; }
 .topo nav a {
   text-decoration: none; color: var(--suave); font-weight: 600; font-size: .92rem;
-  padding: .45rem .75rem; border-radius: 8px; display: flex; align-items: center; gap: .4rem;
+  padding: .45rem .75rem; border-radius: 8px; display: flex; align-items: center; gap: .4rem; white-space: nowrap;
 }
 .topo nav a:hover { background: rgb(0 0 0 / 4%); color: var(--texto); }
 .topo nav a.ativo { background: var(--primaria-clara); color: var(--primaria); }

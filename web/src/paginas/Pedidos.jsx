@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CartaoPedido from '../componentes/CartaoPedido';
 import { useAgora, usePedidos } from '../hooks';
-import { NOMES_STATUS, formatarPreco } from '../formatos';
+import { NOMES_STATUS, formatarPreco, inicioDoDia } from '../formatos';
 
 const COLUNAS = ['recebido', 'em_preparo', 'pronto', 'saiu_entrega'];
 
@@ -13,7 +13,12 @@ export default function Pedidos() {
   if (erro) return <p className="erro">{erro}</p>;
   if (!pedidos) return <p className="suave">Carregando pedidos…</p>;
 
-  const finalizados = pedidos.filter((p) => ['concluido', 'cancelado'].includes(p.status)).reverse();
+  // Conta pelo horário em que o pedido foi finalizado, não criado: um pedido
+  // das 23h50 concluído às 00h10 entra no dia novo.
+  const hoje = inicioDoDia();
+  const finalizados = pedidos
+    .filter((p) => ['concluido', 'cancelado'].includes(p.status) && p.atualizado_em >= hoje)
+    .sort((a, b) => b.atualizado_em.localeCompare(a.atualizado_em));
   const concluidos = finalizados.filter((p) => p.status === 'concluido');
   const faturado = concluidos.reduce((s, p) => s + p.total_centavos, 0);
 

@@ -47,12 +47,12 @@ function obterPedido(id) {
   return montarPedidos([linha])[0];
 }
 
-// Pedidos em aberto (de qualquer dia) + os criados a partir de `desde`.
+// Pedidos em aberto (de qualquer dia) + os criados ou finalizados a partir de `desde`.
 function listarPedidos({ desde }) {
   const marcadores = STATUS_ABERTOS.map(() => '?').join(',');
   const linhas = db.prepare(`${SELECT_PEDIDO}
-    WHERE p.restaurante_id = ? AND (p.status IN (${marcadores}) OR p.criado_em >= ?)
-    ORDER BY p.criado_em`).all(RESTAURANTE_ID, ...STATUS_ABERTOS, desde);
+    WHERE p.restaurante_id = ? AND (p.status IN (${marcadores}) OR p.criado_em >= ? OR p.atualizado_em >= ?)
+    ORDER BY p.criado_em`).all(RESTAURANTE_ID, ...STATUS_ABERTOS, desde, desde);
   return montarPedidos(linhas);
 }
 
