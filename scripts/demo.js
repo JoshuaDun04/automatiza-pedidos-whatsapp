@@ -7,7 +7,7 @@ const EXEMPLOS = [
   {
     minutosAtras: 3, status: [],
     pedido: { canal: 'whatsapp', tipo: 'entrega', forma_pagamento: 'dinheiro', troco_para_centavos: 10000,
-      endereco: 'Rua das Palmeiras, 210, Parque 10 — em frente à farmácia',
+      endereco: 'Rua das Palmeiras, 210, Parque 10, em frente à farmácia',
       cliente: { nome: 'Ana Souza', whatsapp_jid: '5592900000001@s.whatsapp.net', telefone: '5592900000001' },
       itens: [{ produto_id: 1, quantidade: 2 }, { produto_id: 4, quantidade: 2 }] },
   },

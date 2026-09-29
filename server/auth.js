@@ -14,7 +14,7 @@ function carregarConfiguracao() {
   if (!process.env.PAINEL_SENHA) {
     process.env.PAINEL_SENHA = crypto.randomBytes(4).toString('hex');
     faltando.push(`PAINEL_SENHA=${process.env.PAINEL_SENHA}`);
-    console.log(`🔑 Senha do painel criada: ${process.env.PAINEL_SENHA} (fica salva no arquivo .env — troque lá se quiser)`);
+    console.log(`🔑 Senha do painel criada: ${process.env.PAINEL_SENHA} (fica salva no arquivo .env; troque lá se quiser)`);
   }
   if (!process.env.SEGREDO_SESSAO) {
     process.env.SEGREDO_SESSAO = crypto.randomBytes(32).toString('hex');

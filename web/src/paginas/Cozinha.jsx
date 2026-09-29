@@ -37,7 +37,7 @@ export default function Cozinha() {
                 {p.itens.map((item) => (
                   <li key={item.id}>
                     <b>{item.quantidade}x</b> {item.nome}
-                    {item.observacao && <em> — {item.observacao}</em>}
+                    {item.observacao && <em> ({item.observacao})</em>}
                   </li>
                 ))}
               </ul>

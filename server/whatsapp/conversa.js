@@ -15,7 +15,7 @@ const MINUTOS_SESSAO = 120;
 
 // A conversa não conhece o WhatsApp: devolve uma lista de mensagens
 // { para, texto }, em que `para` é o jid do cliente ou 'DONO'. Quem envia é
-// conexao.js — assim dá para trocar a Baileys pela API oficial sem mexer aqui.
+// conexao.js. Assim dá para trocar a Baileys pela API oficial sem mexer aqui.
 const paraCliente = (jid, texto) => ({ para: jid, texto });
 const paraDono = (texto) => ({ para: 'DONO', texto });
 

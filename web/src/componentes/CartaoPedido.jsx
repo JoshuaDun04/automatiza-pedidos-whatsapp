@@ -27,7 +27,7 @@ export default function CartaoPedido({ pedido, agora, aoMudarStatus }) {
         {pedido.itens.map((item) => (
           <li key={item.id}>
             <b>{item.quantidade}x</b> {item.nome}
-            {item.observacao && <em className="suave"> — {item.observacao}</em>}
+            {item.observacao && <em className="suave"> ({item.observacao})</em>}
           </li>
         ))}
       </ul>
@@ -35,7 +35,7 @@ export default function CartaoPedido({ pedido, agora, aoMudarStatus }) {
 
       <p className="pedido-linha">
         {pedido.tipo === 'entrega' ? '🛵' : pedido.tipo === 'local' ? '🍽️' : '🏠'} {NOMES_TIPO[pedido.tipo]}
-        {pedido.endereco && <span className="suave"> — {pedido.endereco}</span>}
+        {pedido.endereco && <span className="suave">: {pedido.endereco}</span>}
       </p>
       <p className="pedido-linha">
         💳 {NOMES_PAGAMENTO[pedido.forma_pagamento]}

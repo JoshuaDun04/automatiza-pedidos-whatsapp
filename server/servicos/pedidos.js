@@ -75,7 +75,7 @@ function salvarCliente({ nome, telefone, whatsappJid, endereco }) {
 
 /**
  * Cria um pedido. Preços vêm sempre do banco (nunca de quem chama), e nome e
- * preço de cada item ficam gravados no pedido — mudar o cardápio depois não
+ * preço de cada item ficam gravados no pedido: mudar o cardápio depois não
  * altera pedidos antigos.
  *
  * itens: [{ produto_id, quantidade, observacao? }]

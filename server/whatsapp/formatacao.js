@@ -11,7 +11,7 @@ function formatarCardapio(restaurante, produtos) {
   let texto = `🍽️ *Cardápio - ${restaurante.nome}*\n\n`;
   produtos.forEach((produto, i) => {
     const emoji = emojisNumero[i] || `${i + 1}.`;
-    texto += `${emoji} ${produto.nome} — ${formatarPreco(produto.preco_centavos)}\n`;
+    texto += `${emoji} ${produto.nome}: ${formatarPreco(produto.preco_centavos)}\n`;
     if (produto.descricao) texto += `      _${produto.descricao}_\n`;
   });
   texto += '\nDigite os números dos itens que deseja (ex: *1, 4*).';
@@ -22,12 +22,12 @@ function formatarCardapio(restaurante, produtos) {
 
 // Linhas de itens de um pedido já montado: [{ nome, quantidade, preco_unitario_centavos }]
 function formatarItens(itens) {
-  return itens.map((i) => `• ${i.quantidade}x ${i.nome} — ${formatarPreco(i.preco_unitario_centavos * i.quantidade)}`).join('\n');
+  return itens.map((i) => `• ${i.quantidade}x ${i.nome}: ${formatarPreco(i.preco_unitario_centavos * i.quantidade)}`).join('\n');
 }
 
 function formatarValores({ itens, tipo, taxa_entrega_centavos: taxa, total_centavos: total }) {
   let texto = formatarItens(itens);
-  if (tipo === 'entrega' && taxa > 0) texto += `\n• Taxa de entrega — ${formatarPreco(taxa)}`;
+  if (tipo === 'entrega' && taxa > 0) texto += `\n• Taxa de entrega: ${formatarPreco(taxa)}`;
   return `${texto}\n\n*Total: ${formatarPreco(total)}*`;
 }
 

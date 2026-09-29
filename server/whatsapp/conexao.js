@@ -53,7 +53,7 @@ async function jidDoDono() {
   try {
     const [resultado] = (await sock.onWhatsApp(numero)) || [];
     if (resultado?.exists) jid = resultado.jid;
-    else console.warn(`⚠️  O WhatsApp do dono (${numero}) não foi encontrado — confira em Configurações.`);
+    else console.warn(`⚠️  O WhatsApp do dono (${numero}) não foi encontrado. Confira em Configurações.`);
   } catch (erro) {
     console.error('Erro ao buscar o WhatsApp do dono:', erro.message);
     return null; // não guarda no cache: tenta de novo no próximo envio
@@ -82,7 +82,7 @@ async function tratarMensagens({ messages, type }) {
         retomarBot(jid);
         console.log(`▶️  Robô retomado na conversa ${jid}`);
       } else if (pausarBot(jid)) {
-        console.log(`⏸️  Atendente assumiu a conversa ${jid} — robô pausado`);
+        console.log(`⏸️  Atendente assumiu a conversa ${jid}, robô pausado`);
       }
       continue;
     }
@@ -119,7 +119,7 @@ async function conectar() {
     if (qr) {
       // O QR muda a cada ~20 s; avisa no terminal só na primeira vez.
       if (status.estado !== 'aguardando_qr') {
-        console.log('📱 WhatsApp aguardando conexão — escaneie o QR code na tela "WhatsApp" do painel.');
+        console.log('📱 WhatsApp aguardando conexão. Escaneie o QR code na tela "WhatsApp" do painel.');
       }
       atualizarStatus({ estado: 'aguardando_qr', qr: await QRCode.toDataURL(qr, { margin: 1, width: 320 }) });
     }
@@ -136,10 +136,10 @@ async function conectar() {
       atualizarStatus({ estado: 'desconectado', qr: null, numero: null });
       if (codigo === DisconnectReason.loggedOut) {
         // Desconectado pelo celular ou pelo painel: apaga a sessão e mostra um QR novo.
-        console.log('🔌 WhatsApp desconectado — gerando novo QR code.');
+        console.log('🔌 WhatsApp desconectado, gerando novo QR code.');
         fs.rmSync(PASTA_SESSAO, { recursive: true, force: true });
       } else {
-        console.log('❌ Conexão com o WhatsApp caiu — reconectando...');
+        console.log('❌ Conexão com o WhatsApp caiu, reconectando...');
       }
       setTimeout(conectar, 2000);
     }

@@ -15,7 +15,7 @@ const RESTAURANTE_ID = 1;
 const agoraSql = "(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))";
 
 // Cada item é uma versão do banco. Para mudar o banco, acrescente um item novo
-// no fim — nunca edite um que já rodou (o PC do restaurante já tem ele aplicado).
+// no fim. Nunca edite um que já rodou (o PC do restaurante já tem ele aplicado).
 const MIGRACOES = [
   `
   CREATE TABLE restaurantes (
