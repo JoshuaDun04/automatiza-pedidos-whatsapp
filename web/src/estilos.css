@@ -113,6 +113,7 @@ label small { font-weight: 400; }
 .pedido-itens { margin: .2rem 0; padding-left: 1.1rem; }
 .pedido-obs { background: var(--alerta-clara); padding: .3rem .5rem; border-radius: 6px; }
 .pedido-linha { display: flex; align-items: baseline; gap: .3rem; flex-wrap: wrap; }
+.pedido-endereco { margin-top: -.2rem; padding-left: 1.4rem; font-size: .85rem; }
 .pedido-total { margin-left: auto; font-size: 1rem; }
 .pedido-acoes { display: flex; gap: .4rem; margin-top: .4rem; flex-wrap: wrap; }
 .pedido-acoes .botao.primario { flex: 1; }

@@ -35,8 +35,8 @@ export default function CartaoPedido({ pedido, agora, aoMudarStatus }) {
 
       <p className="pedido-linha">
         {pedido.tipo === 'entrega' ? '🛵' : pedido.tipo === 'local' ? '🍽️' : '🏠'} {NOMES_TIPO[pedido.tipo]}
-        {pedido.endereco && <span className="suave">: {pedido.endereco}</span>}
       </p>
+      {pedido.endereco && <p className="pedido-endereco suave">{pedido.endereco}</p>}
       <p className="pedido-linha">
         💳 {NOMES_PAGAMENTO[pedido.forma_pagamento]}
         {pedido.troco_para_centavos && <span className="suave"> (troco p/ {formatarPreco(pedido.troco_para_centavos)})</span>}
