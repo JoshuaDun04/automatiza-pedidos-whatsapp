@@ -105,7 +105,7 @@ flowchart LR
 Requirement: [Node.js](https://nodejs.org) 22.13 or newer.
 
 ```bash
-git clone https://github.com/Melinyel04/automatiza-pedidos-whatsapp.git
+git clone https://github.com/JoshuaDun04/automatiza-pedidos-whatsapp.git
 cd automatiza-pedidos-whatsapp
 npm install
 npm run build     # builds the dashboard
